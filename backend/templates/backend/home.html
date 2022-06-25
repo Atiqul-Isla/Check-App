@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">My Check List</h1>
+    {% for item in lists %}
+        {% if item.Completed == True %}
+            <h2><strike>{{ item.Name }}</strike></h2>
+            <a href="{% url 'edit-item' item.id %}">Update</a>
+            <a href="{% url 'delete-item' item.id %}">Remove</a>
+        {% else %}
+            <h2>{{ item.Name }}</h2>
+            <h4>{{ item.Description }}</h4>
+            <a href="{% url 'edit-item' item.id %}">Update</a>
+            <a href="{% url 'delete-item' item.id %}">Remove</a>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    <h2>Are you sure you want to delete this item with the name: '{{list.Name}}'?</h2>
+    <input type="submit" value="Yes"/>
+    <a href="{% url 'home' %}">No</a>
+
+{% endblock content %}
