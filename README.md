@@ -9,7 +9,9 @@ How the app was built:
 - Django.forms was used to create forms in which the user can enter information based on the categories highlighted in models.py.
 - The frontend was inherited from the 'templates' folder which included the 'navbar.html' file and more importantly the 'main.html' file which
   served as the parent template file.
-- Bootstrap was used to create a responsive design
+- Bootstrap was used to create a responsive design.
 
 # Check it out!
 https://atiqul-check.herokuapp.com/
+
+Feel free to play around with the full CRUD functionality.
