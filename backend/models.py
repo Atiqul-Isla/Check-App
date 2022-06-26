@@ -10,7 +10,7 @@ class List(models.Model):
     ##Creating constraints for user, name, description and dates
     User = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     Name = models.CharField(max_length=255)
-    Description = models.TextField(null=True)
+    Description = models.TextField(null=True, blank=True)
     Completed = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now=True)
     date_updated = models.DateTimeField(auto_now_add=True)

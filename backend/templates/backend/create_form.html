@@ -2,9 +2,13 @@
 
 {% block content %}
 
-<form method="POST" action="">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="submit"/>
-
+<!-- Creating a Django form that asks the user for all fields in our model database -->
+<div class="center-column">
+    <div class="form-group">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input class="btn btn-info" type="submit" value="submit"/>
+    </div>
+</div>
 {% endblock content %}

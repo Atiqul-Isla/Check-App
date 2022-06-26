@@ -2,10 +2,16 @@
 
 {% block content %}
 
-<form method="POST" action="">
-    {% csrf_token %}
-    <h2>Are you sure you want to delete this item with the name: '{{list.Name}}'?</h2>
-    <input type="submit" value="Yes"/>
-    <a href="{% url 'home' %}">No</a>
-
+<!-- Moving everything to the center -->
+<div class="center-column">
+    <!-- Creating a form that sends a POST request everytime the input button is clicked -->
+    <!-- The POST request deletes the item in the List database -->
+    <form method="POST" action="">
+        <!-- CSRF Token ensures that the data is moved safely -->
+        {% csrf_token %}
+        <h2>Are you sure you want to delete this item with the name: '<span style="color: #337ab7;">{{list.Name}}</span>'?</h2>
+        <input class='btn btn-info' type="submit" value="Yes"/>
+        <hr>
+        <a class='' href="{% url 'home' %}" >No, take me back</a>
+</div>
 {% endblock content %}

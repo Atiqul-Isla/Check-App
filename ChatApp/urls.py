@@ -19,6 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    ##Creating API path url by directing users to backend app when typing domain/api/* 
+    ##Creating  path url by directing users to backend app when typing ''
     path('', include('backend.urls'))
 ]

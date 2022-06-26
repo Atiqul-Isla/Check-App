@@ -1,18 +1,25 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<div class="container">
-    <h1 class="text-center">My Check List</h1>
+<!-- setting class of all fields to center-column so everything gets moved to the center with a better background -->
+<div class="center-column">
+    <h1 class="title text-center">My Check List</h1>
+    <!-- Python script for parsing through all items in the List database  -->
     {% for item in lists %}
+        <!-- Python script to determine if a task is completed and if it is adding a visual indicator for it -->
         {% if item.Completed == True %}
-            <h2><strike>{{ item.Name }}</strike></h2>
-            <a href="{% url 'edit-item' item.id %}">Update</a>
-            <a href="{% url 'delete-item' item.id %}">Remove</a>
+            <div class="item-row">
+                <h2 style='color:	#337ab7;text-decoration: line-through'><span style="color: #337ab7">{{ item.Name }}</span></h2>
+                <a class="btn btn-sm btn-info" href="{% url 'edit-item' item.id %}">Update</a>
+                <a class="btn btn-sm btn-danger" href="{% url 'delete-item' item.id %}">Remove</a>
+            </div>
         {% else %}
-            <h2>{{ item.Name }}</h2>
-            <h4>{{ item.Description }}</h4>
-            <a href="{% url 'edit-item' item.id %}">Update</a>
-            <a href="{% url 'delete-item' item.id %}">Remove</a>
+            <div class="item-row">
+                <h2>{{ item.Name }}</h2>
+                <h4 style="color: white;">{{ item.Description|linebreaks }}</h4>
+                <a class="btn btn-sm btn-info" href="{% url 'edit-item' item.id %}">Update</a>
+                <a class="btn btn-sm btn-danger" href="{% url 'delete-item' item.id %}">Remove</a>
+            </div>
         {% endif %}
     {% endfor %}
 </div>
